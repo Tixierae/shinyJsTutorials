@@ -28,7 +28,7 @@ HTMLWidgets.widget({
           			json: [],
           			keys: {
           			      // use Time for x-axis
-          			      x: "Time",
+          			      x: "Attributes",
 
           			  // use the remaining data for y-values
           				value: keys,
@@ -37,50 +37,56 @@ HTMLWidgets.widget({
           			types: {
 
           		  	// default is line, we want totals to be displayed as bars
-          				Total: 'bar'
+          				Counts: 'bar'
           			},
-          			axes: {
+          			//axes: {
           			  // extra y-axis
-          				Total: 'y2'
-          			},
+          			//	Total: 'y2'
+          			//},
         		  },
           		axis: {
-          			x: {
-          			  //  x axis as timeseries
-          				type: "timeseries",
-
-          				// tick format x-asis
-          				tick: {
-          					format: "%Y-%m-%d"
-          				}
-          			},
-          			y2: {
+        x: {
+            type: 'category',
+            tick: {
+                rotate: 65,
+                multiline: false
+            },
+            height: 160
+        },
+          			//y2: {
           			  // we want a second y-axis
-          				show: true
-          			}
+          			//	show: true
+          			//}
           		},
 
           		// display a subchart - this will be used for brushing in a later stage
-          		subchart: {
-          			show: true
-          		}
+          		//subchart: {
+          		//	show: true
+          		//}
           	});
+			
+		  // store the chart on el so we can get it latter
+          el.chart = chart;
+			
         }
 
+		
+		el.chart.load({json: x.dataset});
+		
         // at this stage the chart always exists
         // get difference in keys
-        var old_keys = _.keys(chart.x());
-        var new_keys = _.keys(x.dataset);
-        var diff     = _.difference(old_keys,new_keys);
+        //var old_keys = _.keys(chart.x());
+        //var new_keys = _.keys(x.dataset);
+        //var diff     = _.difference(old_keys,new_keys);
 
         // update the data and colors
-        chart.load({
-          json  : x.dataset,
-          colors: x.colors,
+        //chart.load({
+         // json  : x.dataset,
+          //colors: x.colors,
 
           // unload data that we don't need anymore
-          unload: diff
-        });
+         // unload: diff
+        //});
       }
     };
   }

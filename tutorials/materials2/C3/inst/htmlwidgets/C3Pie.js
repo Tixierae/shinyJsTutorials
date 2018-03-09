@@ -24,6 +24,9 @@ HTMLWidgets.widget({
                     type : 'pie',
                     onclick:  function (d, element) { Shiny.onInputChange(el.id,d)}
                 },
+				color: {
+        pattern: ['#1f77b4','#8c564b', '#ffbb78', '#2ca02c', '#98df8a','#ff7f0e', '#e377c2', '#aec7e8', '#9467bd']
+    },
             legend: {
                 position: x.legendPosition
               }
