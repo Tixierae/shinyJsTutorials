@@ -43,7 +43,13 @@ HTMLWidgets.widget({
           			  // extra y-axis
           			//	Total: 'y2'
           			//},
-        		  },
+        		  },    bar: {
+        width: {
+            ratio: 0.835 // this makes bar width 50% of length between ticks
+        }
+        // or
+        //width: 100 // this makes bar width 100px
+    },
           		axis: {
         x: {
             type: 'category',
