@@ -43,7 +43,13 @@ HTMLWidgets.widget({
         // get the chart stored in el and update it
         el.chart.load({json: x});
 
-      }
+      },
+	  	   resize: function(width, height) {
+      // this will vary based on the JavaScript library
+      // in the case of C3 we are fortunate that there is a resize method
+      //  http://c3js.org/samples/api_resize.html
+      chart.resize({height:height, width:width})
+    }
     };
   }
 });

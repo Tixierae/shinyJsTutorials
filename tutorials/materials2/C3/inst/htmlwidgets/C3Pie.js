@@ -47,7 +47,14 @@ HTMLWidgets.widget({
             // unload data that we don't want anymore
             unload: diff
         });
-      }
+      },
+	   resize: function(width, height) {
+      // this will vary based on the JavaScript library
+      // in the case of C3 we are fortunate that there is a resize method
+      //  http://c3js.org/samples/api_resize.html
+      chart.resize({height:height, width:width})
+    }
+	  
     };
   }
 });
