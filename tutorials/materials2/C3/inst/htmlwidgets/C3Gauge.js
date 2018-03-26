@@ -32,7 +32,15 @@ HTMLWidgets.widget({
                     max: 100,
                     width: 15,
                     units: 'value'
-                }
+                },
+				    color: {
+        pattern: ['#60B044','#F6C600','#F97600','#FF0000'], // the three color levels for the percentage values.
+        threshold: {
+//            unit: 'value', // percentage is default
+//            max: 200, // 100 is default
+            values: [30, 60, 90, 100]
+        }
+    }
             });
 
             // store the chart on el so we can get it latter
@@ -42,6 +50,7 @@ HTMLWidgets.widget({
         // at this stage the chart always exists
         // get the chart stored in el and update it
         el.chart.load({json: x});
+		
 
       },
 	  	   resize: function(width, height) {
