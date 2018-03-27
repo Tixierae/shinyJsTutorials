@@ -1,3 +1,5 @@
+install modified widgets as `devtools::install_github("tixierae/shinyJsTutorials/tutorials/materials2/C3")`
+
 # shiny-js-tutorials
 
 this repo contains the code and documentation for the shiny javascript tutorials at the [Shiny Development Center](http://shiny.rstudio.com/tutorial/) offered by RSTUDIO. The series consist of 6 in depth lessons for the intermediate shiny enthusiast with limited experience in HTML, CSS and/or JavaScript, who wants to learn how to extend shiny. 
