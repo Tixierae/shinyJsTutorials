@@ -5,11 +5,14 @@
 #' @import htmlwidgets
 #'
 #' @export
-C3Hist <- function(value, width = NULL, height = NULL) {
+C3Hist <- function(my_bins,my_th,x1,risk, width = NULL, height = NULL) {
 
   # forward options using x
   x = list(
-    data = value
+    my_bins = my_bins,
+    my_th = my_th,
+    x1 = x1,
+    risk = risk
   )
 
   # create widget
