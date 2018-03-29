@@ -13,7 +13,7 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 		  
-		var my_th = x;
+		// var my_th = x;
 		  
         // check if the chart exists
         if(chart === null){
@@ -30,11 +30,11 @@ HTMLWidgets.widget({
 
         ],
         type: 'bar',
-        colors: {
-            risk: function(d) {
-                return (my_bins.indexOf(d.value) >= my_th) ? '#aec7e8':'#1f77b4'; //(d.value >= 45) ? '#1f77b4': '#aec7e8';
-            }
-        }
+        //colors: {
+         //   risk: function(d) {
+         //       return (my_bins.indexOf(d.value) >= my_th) ? '#aec7e8':'#1f77b4'; //(d.value >= 45) ? '#1f77b4': '#aec7e8';
+          //  }
+        //}
             
     },
 bar: {
@@ -46,16 +46,16 @@ bar: {
     },
     legend: {
        show: false
-    },
+    }//,
     // take care of color in tooltip
-    tooltip: {
-        contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-            color = function() {
-                return (my_bins.indexOf(d[0].value) >= my_th) ? '#aec7e8':'#1f77b4'; //return (d[0].value >= 45) ? '#00ff00' : '#ff0000';
-            };
-            return chart.internal.getTooltipContent.call(this, d, defaultTitleFormat, defaultValueFormat, color)
-        }
-    }
+   // tooltip: {
+    //    contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+    //        color = function() {
+    //            return (my_bins.indexOf(d[0].value) >= my_th) ? '#aec7e8':'#1f77b4'; //return (d[0].value >= 45) ? '#00ff00' : '#ff0000';
+    //        };
+    //        return chart.internal.getTooltipContent.call(this, d, defaultTitleFormat, defaultValueFormat, color)
+     //   }
+   // }
 });
             // store the chart on el so we can get it latter
           el.chart = chart;
