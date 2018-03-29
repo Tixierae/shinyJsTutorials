@@ -24,25 +24,36 @@ var my_bins = [0.3, 0.2, 0.1, 0.05, 0.04, 0.01];
 
 
 var chart = c3.generate({  
-	bindto: el,
-    data: {
-                xs: {
+	bindto: el,	    
+	                    data: {
+                    json: x,
+                    type: 'bar',
+				     xs: {
             'risk': 'x1', 
         },
-        columns: [
-             ['x1', 0, 50, 100, 150, 200, 250],
-            ['risk',0.3, 0.2, 0.1, 0.05, 0.04, 0.01] // hardcoded
-
-        ],
-        type: 'bar',
-        colors: {
+				    colors: {
             risk: function(d) {
                 return (my_bins.indexOf(d.value) >= my_th) ? '#aec7e8':'#1f77b4'; //(d.value >= 45) ? '#1f77b4': '#aec7e8';
             }
-        },
-	    	    onclick:  function (d, element) { Shiny.onInputChange(el.id,d)}
+		    },
+                    onclick:  function (d, element) { Shiny.onInputChange(el.id,d)}
+                },
+	    
+	    
+      //  columns: [
+       //      ['x1', 0, 50, 100, 150, 200, 250],
+        //    ['risk',0.3, 0.2, 0.1, 0.05, 0.04, 0.01] // hardcoded
+
+        //],
+        //type: 'bar',
+        //colors: {
+         //   risk: function(d) {
+          //      return (my_bins.indexOf(d.value) >= my_th) ? '#aec7e8':'#1f77b4'; //(d.value >= 45) ? '#1f77b4': '#aec7e8';
+           // }
+       // },
+	 //   	    onclick:  function (d, element) { Shiny.onInputChange(el.id,d)}
             
-    },
+    //},
 bar: {
         width: {
             ratio: 1 // this makes bar width 50% of length between ticks
@@ -69,7 +80,7 @@ bar: {
 
         // at this stage the chart always exists
         // get the chart stored in el and update it
-        el.chart.load();
+      el.chart.load({json: x});
 		
       },
 	  	   resize: function(width, height) {
