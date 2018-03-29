@@ -68,7 +68,7 @@ bar: {
 
         // at this stage the chart always exists
         // get the chart stored in el and update it
-        el.chart.load();
+      //  el.chart.load();
 		
       },
 	  	   resize: function(width, height) {
