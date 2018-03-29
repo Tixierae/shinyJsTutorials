@@ -80,15 +80,15 @@ HTMLWidgets.widget({
                     },
                     min: 0,
                     max: 100,
-                    width: 15,
-                    units: 'value'
+                    width: 20,
+                    units: '% of max observed risk'
                 },
 				   color: {
-        pattern: ['#60B044','#F6C600','#F97600','#FF0000'], // the three color levels for the percentage values.
+        pattern: ['#60B044','#F9F900','#F6C600','#F97600','#FF0000'], // the three color levels for the percentage values.
         threshold: {
            unit: 'value', // percentage is default
            max: 200, // 100 is default
-           values: [30, 60, 90, 100]
+           values: [8, 14, 28, 60, 100]
         }
     }
             });
