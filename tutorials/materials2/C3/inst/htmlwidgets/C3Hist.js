@@ -8,8 +8,8 @@ HTMLWidgets.widget({
 
     // create an empty chart
     var chart = null;
-var my_th = 2;
-var my_bins = [0.3, 0.2, 0.1, 0.05, 0.04, 0.01];
+//var my_th = 2;
+//var my_bins = [0.3, 0.2, 0.1, 0.05, 0.04, 0.01];
 
     return {
 
@@ -25,15 +25,21 @@ var my_bins = [0.3, 0.2, 0.1, 0.05, 0.04, 0.01];
 
 var chart = c3.generate({  
 	bindto : el,
-	                    data: {
-                    json: x,
+	                                   data: {
+                    columns: [
+			    ['x1'].concat(x.x1),
+['risk'].concat(x.risk)
+			    
+          // ['x1', 0, 50, 100, 150, 200, 250],
+          // ['risk',0.3, 0.2, 0.1, 0.05, 0.04, 0.01] // hardcoded
+        ],
                     type: 'bar',
 				     xs: {
             'risk': 'x1', 
         },
 				    colors: {
             risk: function(d) {
-                return (my_bins.indexOf(d.value) >= my_th) ? '#aec7e8':'#1f77b4'; //(d.value >= 45) ? '#1f77b4': '#aec7e8';
+                return (x.my_bins.indexOf(d.value) >= x.my_th) ? '#aec7e8':'#1f77b4'; //(d.value >= 45) ? '#1f77b4': '#aec7e8';
             }
 		    },
                     onclick:  function (d, element) { Shiny.onInputChange(el.id,d)}
@@ -68,7 +74,7 @@ bar: {
     tooltip: {
         contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
            color = function() {
-               return (my_bins.indexOf(d[0].value) >= my_th) ? '#aec7e8':'#1f77b4'; //return (d[0].value >= 45) ? '#00ff00' : '#ff0000';
+               return (x.my_bins.indexOf(d[0].value) >= x.my_th) ? '#aec7e8':'#1f77b4'; //return (d[0].value >= 45) ? '#00ff00' : '#ff0000';
           };
           return chart.internal.getTooltipContent.call(this, d, defaultTitleFormat, defaultValueFormat, color)
        }
@@ -80,9 +86,19 @@ bar: {
 
         // at this stage the chart always exists
         // get the chart stored in el and update it
-      el.chart.load({json: x});
-		
-      },
+            var old_keys = _.keys(chart.x());
+        var new_keys = _.keys(x.values);
+        var diff     = _.difference(old_keys,new_keys);
+
+        // load the new data (stored in x.values)
+        chart.load({
+          json:
+            x.values,
+
+            // unload data that we don't want anymore
+            unload: diff
+        });
+},
 	  	   resize: function(width, height) {
       // this will vary based on the JavaScript library
       // in the case of C3 we are fortunate that there is a resize method
