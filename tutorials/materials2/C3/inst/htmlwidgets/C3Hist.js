@@ -39,7 +39,8 @@ var chart = c3.generate({
             risk: function(d) {
                 return (my_bins.indexOf(d.value) >= my_th) ? '#aec7e8':'#1f77b4'; //(d.value >= 45) ? '#1f77b4': '#aec7e8';
             }
-        }
+        },
+	    	    onclick:  function (d, element) { Shiny.onInputChange(el.id,d)}
             
     },
 bar: {
