@@ -8,33 +8,38 @@ HTMLWidgets.widget({
 
     // create an empty chart
     var chart = null;
+var my_th = 2;
+var my_bins = [0.3, 0.2, 0.1, 0.05, 0.04, 0.01];
 
     return {
 
       renderValue: function(x) {
-		  
+
 		// var my_th = x;
 		  
         // check if the chart exists
         if(chart === null){
 
             // the chart did not exist and we want to create a new chart via c3.generate
-			var chart = c3.generate({
-				
 
-					  
-				bindto: el,
+
+var chart = c3.generate({  
+	bindto: el,
     data: {
+                xs: {
+            'risk': 'x1', 
+        },
         columns: [
-            ['risk', 150, 100, 105, 45, 25, 10] // hardcoded
+             ['x1', 0, 50, 100, 150, 200, 250],
+            ['risk',0.3, 0.2, 0.1, 0.05, 0.04, 0.01] // hardcoded
 
         ],
         type: 'bar',
-        //colors: {
-         //   risk: function(d) {
-         //       return (my_bins.indexOf(d.value) >= my_th) ? '#aec7e8':'#1f77b4'; //(d.value >= 45) ? '#1f77b4': '#aec7e8';
-          //  }
-        //}
+        colors: {
+            risk: function(d) {
+                return (my_bins.indexOf(d.value) >= my_th) ? '#aec7e8':'#1f77b4'; //(d.value >= 45) ? '#1f77b4': '#aec7e8';
+            }
+        }
             
     },
 bar: {
@@ -46,16 +51,16 @@ bar: {
     },
     legend: {
        show: false
-    }//,
+    },
     // take care of color in tooltip
-   // tooltip: {
-    //    contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-    //        color = function() {
-    //            return (my_bins.indexOf(d[0].value) >= my_th) ? '#aec7e8':'#1f77b4'; //return (d[0].value >= 45) ? '#00ff00' : '#ff0000';
-    //        };
-    //        return chart.internal.getTooltipContent.call(this, d, defaultTitleFormat, defaultValueFormat, color)
-     //   }
-   // }
+    tooltip: {
+        contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+           color = function() {
+               return (my_bins.indexOf(d[0].value) >= my_th) ? '#aec7e8':'#1f77b4'; //return (d[0].value >= 45) ? '#00ff00' : '#ff0000';
+          };
+          return chart.internal.getTooltipContent.call(this, d, defaultTitleFormat, defaultValueFormat, color)
+       }
+    }
 });
             // store the chart on el so we can get it latter
           el.chart = chart;
