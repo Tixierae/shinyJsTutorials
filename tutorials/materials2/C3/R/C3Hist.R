@@ -8,7 +8,9 @@
 C3Hist <- function(value, width = NULL, height = NULL) {
 
   # forward options using x
-  x = value
+  x = list(
+    data = value
+  )
 
   # create widget
   htmlwidgets::createWidget(
