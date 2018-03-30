@@ -57,11 +57,7 @@ HTMLWidgets.widget({
                     el.chart = chart;
                 }
                 // at this stage the chart always exists
-                // get the chart stored in el and update it
-                var old_keys = _.keys(chart.x());
-                var new_keys = _.keys(x.values);
-                var diff     = _.difference(old_keys,new_keys);
-                // load the new data (stored in x.values)
+                // load the new data
                 chart.load({
                     columns: [
                         ['x1'].concat(x.x1),
