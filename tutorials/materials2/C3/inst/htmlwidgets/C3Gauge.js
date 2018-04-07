@@ -88,7 +88,7 @@ HTMLWidgets.widget({
         threshold: {
            unit: 'value', // percentage is default
            max: 200, // 100 is default
-           values: [8, 14, 28, 60, 100]
+           values: [3,8,17,66,100]//[8, 14, 28, 60, 100]
         }
     }
             });
