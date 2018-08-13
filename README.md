@@ -1,4 +1,4 @@
-install modified widgets as `devtools::install_github("tixierae/shinyJsTutorials/tutorials/materials2/C3")`
+install modified widgets as `devtools::install_github("tixierae/shinyJsTutorials/tutorials/materials2/C3")` If previous installation aborted for some reason, might be necessary to use `INSTALL_opts = c('--no-lock')` argument.
 
 # shiny-js-tutorials
 
