@@ -20,53 +20,57 @@ HTMLWidgets.widget({
 
             
             chart = c3.generate({
+			
+			          	  // specify the container element we want the chart to render in
+          		bindto: el,
+          		data: {
 
-              // specify the container element we want the chart to render in
-                bindto: el,
-                data: {
+          		  // intialize with an empty array
+          			json: [],
+          			keys: {
+          			      // use Time for x-axis
+          			      x: "Attributes",
 
-                  // intialize with an empty array
-                    json: [],
-                    keys: {
-                          // use Time for x-axis
-                          x: "Attributes",
+          			  // use the remaining data for y-values
+          				value: keys,
+          			},
+          			// set chart types
+          			types: {
 
-                      // use the remaining data for y-values
-                        value: keys,
-                    },
-                    // set chart types
-                    types: {
-
-                    // default is line, we want totals to be displayed as bars
-                        Counts: 'bar'
-                    },
-                    //axes: {
-                      // extra y-axis
-                    //  Total: 'y2'
-                    //},
-                  },    
-                  bar: {
+          		  	// default is line, we want totals to be displayed as bars
+          				Counts: 'bar'
+          			},
+          			//axes: {
+          			  // extra y-axis
+          			//	Total: 'y2'
+          			//},
+        		  },    bar: {
         width: {
             ratio: 0.835 // this makes bar width 50% of length between ticks
         }
         // or
         //width: 100 // this makes bar width 100px
     },
-                axis: {
-					rotated: true,
-         x: {
+          		axis: {
+        x: {
             type: 'category',
+            tick: {
+                rotate: 65,
+                multiline: false
+            },
+            height: 160
         },
-                    //y2: {
-                      // we want a second y-axis
-                    //  show: true
-                    //}
-                },
+          			//y2: {
+          			  // we want a second y-axis
+          			//	show: true
+          			//}
+          		},
 
-                // display a subchart - this will be used for brushing in a later stage
-                //subchart: {
-                //  show: true
-                //}
+          		// display a subchart - this will be used for brushing in a later stage
+          		//subchart: {
+          		//	show: true
+          		//}
+			
             });
             
           // store the chart on el so we can get it latter
