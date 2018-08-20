@@ -8,7 +8,7 @@ dependencies:
   src: htmlwidgets/lib/c3
   script: ./c3.min.js
   style: ./c3.min.css
-  - name: underscore
+- name: underscore
   version: 1.8.3
   src: htmlwidgets/lib/underscore
   script: ./underscore-min.js
