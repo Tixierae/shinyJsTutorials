@@ -5,12 +5,13 @@
 #' @import htmlwidgets
 #'
 #' @export
-C3HorBar <- function(my_df,colors, width = NULL, height = NULL) {
+C3HorBar <- function(my_df,colors,my_title='',width=NULL,height=NULL) {
 
   # forward options using x
   x = list(
     dataset = my_df,
-    colors   = colors
+    colors = colors,
+	title = my_title
   )
   
   attr(x, 'TOJSON_ARGS') = list(digits = 2)

@@ -48,6 +48,10 @@ HTMLWidgets.widget({
             height: 160
         },
                 },
+				
+				title: {
+  text:x.title 
+},
 
         });
 
