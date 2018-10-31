@@ -16,7 +16,8 @@ HTMLWidgets.widget({
 	  if(chart===null){
 		  
 		keys = _.keys(x.dataset); //var mywidgetData =  //{"Attributes":["trunk","shoulder","elbow"],"Counts":[0.1,0.25,0.65]} 
-		  
+		my_title = x.title;
+		
         chart = c3.generate({
 
             bindto: el,
@@ -49,9 +50,7 @@ HTMLWidgets.widget({
         },
                 },
 				
-				title: {
-  text:x.title 
-},
+				title: {text:my_title},
 
         });
 
