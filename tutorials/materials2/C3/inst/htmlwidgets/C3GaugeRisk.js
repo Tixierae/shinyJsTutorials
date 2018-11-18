@@ -31,7 +31,7 @@ HTMLWidgets.widget({
                     min: 0,
                     max: 100,
                     width: 20,
-                    units: '% of max observed risk'
+                    units: '% of max simulated risk'
                 },
 				   color: {
         pattern: x.my_colors, // the three color levels for the percentage values.
