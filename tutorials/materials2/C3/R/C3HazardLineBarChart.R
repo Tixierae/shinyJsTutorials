@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-C3ControlLineBarChart <- function(dataset, colors, width = NULL, height = NULL) {
+C3HazardLineBarChart <- function(dataset, colors, width = NULL, height = NULL) {
 
   # forward options using x
   x = list(
@@ -15,7 +15,7 @@ C3ControlLineBarChart <- function(dataset, colors, width = NULL, height = NULL) 
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'C3ControlLineBarChart',
+    name = 'C3HazardLineBarChart',
     x,
     width = width,
     height = height,
@@ -23,30 +23,30 @@ C3ControlLineBarChart <- function(dataset, colors, width = NULL, height = NULL) 
   )
 }
 
-#' Shiny bindings for C3ControlLineBarChart
+#' Shiny bindings for C3HazardLineBarChart
 #'
-#' Output and render functions for using C3ControlLineBarChart within Shiny
+#' Output and render functions for using C3HazardLineBarChart within Shiny
 #' applications and interactive Rmd documents.
 #'
 #' @param outputId output variable to read from
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
 #'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
 #'   string and have \code{'px'} appended.
-#' @param expr An expression that generates a C3ControlLineBarChart
+#' @param expr An expression that generates a C3HazardLineBarChart
 #' @param env The environment in which to evaluate \code{expr}.
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
 #'
-#' @name C3ControlLineBarChart-shiny
+#' @name C3HazardLineBarChart-shiny
 #'
 #' @export
-C3ControlLineBarChartOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'C3ControlLineBarChart', width, height, package = 'C3')
+C3HazardLineBarChartOutput <- function(outputId, width = '100%', height = '400px'){
+  htmlwidgets::shinyWidgetOutput(outputId, 'C3HazardLineBarChart', width, height, package = 'C3')
 }
 
-#' @rdname C3ControlLineBarChart-shiny
+#' @rdname C3HazardLineBarChart-shiny
 #' @export
-renderC3ControlLineBarChart <- function(expr, env = parent.frame(), quoted = FALSE) {
+renderC3HazardLineBarChart <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, C3ControlLineBarChartOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, C3HazardLineBarChartOutput, env, quoted = TRUE)
 }

@@ -1,6 +1,6 @@
 HTMLWidgets.widget({
 
-  name: 'C3ControlLineBarChart',
+  name: 'C3HazardLineBarChart',
 
   type: 'output',
 
