@@ -40,6 +40,10 @@ HTMLWidgets.widget({
           				Controlled: 'bar',
 						Uncontrolled: 'bar'
           			},
+						        colors: {
+            Controlled: '#00cc00',
+            Uncontrolled: '#e60000'
+        },
           			//axes: {
           			  // extra y-axis
           			//	Total: 'y2'
@@ -51,10 +55,6 @@ HTMLWidgets.widget({
         // or
         //width: 100 // this makes bar width 100px
     },
-	        colors: {
-            Controlled: '#00cc00',
-            Uncontrolled: '#e60000'
-        },
          axis: {
         x: {
             type: 'category',
