@@ -59,6 +59,14 @@ HTMLWidgets.widget({
             },
             height: 160
         },
+		// taken from: https://stackoverflow.com/questions/31703525/c3-charts-dont-want-decimal-numbers-in-y-axis
+		y: {
+            tick: {
+                format: function (d) {
+                    return (parseInt(d) == d) ? d : null;
+                }
+            }
+        }
           			//y2: {
           			  // we want a second y-axis
           			//	show: true
