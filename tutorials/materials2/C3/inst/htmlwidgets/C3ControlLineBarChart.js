@@ -38,11 +38,11 @@ HTMLWidgets.widget({
 
           		  	// default is line, we want totals to be displayed as bars
           				Present: 'bar',
-						Absent: 'bar'
+						Missing: 'bar'
           			},
 						        colors: {
             Present: '#00cc00',
-            Absent: '#e60000'
+            Missing: '#e60000'
         },
           			//axes: {
           			  // extra y-axis
