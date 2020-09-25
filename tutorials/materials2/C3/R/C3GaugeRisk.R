@@ -5,11 +5,11 @@
 #' @import htmlwidgets
 #'
 #' @export
-C3GaugeRisk <- function(value, my_colors, my_max, my_thresholds, width = NULL, height = NULL) {
+C3GaugeRisk <- function(risk, my_colors, my_max, my_thresholds, width = NULL, height = NULL) {
 
   # forward options using x
   x = list(
-    value = list(value=value),
+    value = list(risk=risk),
 	my_colors = my_colors, # e.g., ['#60B044','#F9F900','#F6C600','#F97600','#FF0000']
 	my_max = my_max, 
 	my_thresholds = my_thresholds # e.g., [3,8,17,66,100]
