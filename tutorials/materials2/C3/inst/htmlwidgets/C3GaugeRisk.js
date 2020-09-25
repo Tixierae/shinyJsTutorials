@@ -19,7 +19,7 @@ HTMLWidgets.widget({
           chart = c3.generate({
                 bindto: el,
                 data: {
-                    json: {'value': [x.risk]},
+                    json: {'test': [x.risk]},
                     type: 'gauge',
                     onclick:  function (d, element) { Shiny.onInputChange(el.id,d)}
                 },
