@@ -24,6 +24,7 @@ HTMLWidgets.widget({
                 data: {
 					json: [],
           			keys: {
+						x: "Value",
           			  // use the remaining data for y-values
           				value: keys,
           			},
