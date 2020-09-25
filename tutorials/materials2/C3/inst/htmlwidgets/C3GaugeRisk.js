@@ -49,7 +49,7 @@ HTMLWidgets.widget({
 
         // at this stage the chart always exists
         // get the chart stored in el and update it
-        el.chart.load({json: x.risk});
+        el.chart.load({json: x.value});
 		
 
       },
