@@ -15,12 +15,11 @@ HTMLWidgets.widget({
 
         // check if the chart exists
         if(chart === null){
-
             // the chart did not exist and we want to create a new chart via c3.generate
           chart = c3.generate({
                 bindto: el,
                 data: {
-                    json: x.risk,
+                    json: {value: [x.risk]},
                     type: 'gauge',
                     onclick:  function (d, element) { Shiny.onInputChange(el.id,d)}
                 },
