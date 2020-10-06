@@ -70,7 +70,7 @@ HTMLWidgets.widget({
                 rotate: 65,
                 multiline: false
             },
-            height: 160
+            height: 60
         },
 		// taken from: https://stackoverflow.com/questions/31703525/c3-charts-dont-want-decimal-numbers-in-y-axis
 		y: {
