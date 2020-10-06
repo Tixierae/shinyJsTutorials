@@ -44,6 +44,10 @@ HTMLWidgets.widget({
           			//	Total: 'y2'
           			//},
         		  },
+				  padding: {
+      bottom: 5
+   },
+				  
 				  bar: {
         width: {
             ratio: 0.835 // this makes bar width 50% of length between ticks
@@ -61,7 +65,7 @@ HTMLWidgets.widget({
                 rotate: 65,
                 multiline: false
             },
-            height: 160
+            height: 120 // reduce from 160 to 120 here
         },
 		// taken from: https://stackoverflow.com/questions/31703525/c3-charts-dont-want-decimal-numbers-in-y-axis
 		y: {
