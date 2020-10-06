@@ -54,7 +54,7 @@ HTMLWidgets.widget({
         		  },
 				     padding: {
       bottom: 5
-   }
+   },
 				  
 				  bar: {
         width: {
