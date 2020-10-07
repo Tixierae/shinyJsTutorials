@@ -48,7 +48,12 @@ HTMLWidgets.widget({
           			  // extra y-axis
           			//	Total: 'y2'
           			//},
-        		  },    bar: {
+        		  },
+				  padding: {
+      bottom: 5
+   },
+				  
+				  bar: {
         width: {
             ratio: 0.65 // this makes bar width 50% of length between ticks
         }
