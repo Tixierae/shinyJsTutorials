@@ -46,7 +46,7 @@ HTMLWidgets.widget({
 						        colors: {
             Low: '#00cc00',
             High: '#e60000'
-        },
+        }
           			//axes: {
           			  // extra y-axis
           			//	Total: 'y2'
