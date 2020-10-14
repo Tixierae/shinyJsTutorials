@@ -1,6 +1,6 @@
 HTMLWidgets.widget({
 
-  name: 'C3HazardLineBarChart',
+  name: 'C3LineBarChartHorLab',
 
   type: 'output',
 
@@ -37,37 +37,36 @@ HTMLWidgets.widget({
           			types: {
 
           		  	// default is line, we want totals to be displayed as bars
-          				Controlled: 'bar',
-						Uncontrolled: 'bar'
+          				Counts: 'bar'
           			},
-						        colors: {
-            Controlled: '#00cc00',
-            Uncontrolled: '#e60000'
-        }
           			//axes: {
           			  // extra y-axis
           			//	Total: 'y2'
           			//},
         		  },
-		padding: {
+				  padding: {
       bottom: 5
    },
+				  
 				  bar: {
         width: {
-            ratio: 0.65 // this makes bar width 50% of length between ticks
+            ratio: 0.835 // this makes bar width 50% of length between ticks
         }
         // or
         //width: 100 // this makes bar width 100px
     },
-         axis: {
-        x: {
-            type: 'category',
-            tick: {
-                rotate: 65,
-                multiline: false
-            },
-            height: 140
-        },
+	legend: {
+        show: false
+    },
+          		axis: {
+		x: {
+			type: 'category',
+			tick: {
+				rotate: 0,
+				multiline: false
+			},
+			height: 50
+		},
 		// taken from: https://stackoverflow.com/questions/31703525/c3-charts-dont-want-decimal-numbers-in-y-axis
 		y: {
             tick: {
