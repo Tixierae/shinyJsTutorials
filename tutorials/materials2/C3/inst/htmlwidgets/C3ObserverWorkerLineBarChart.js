@@ -41,8 +41,8 @@ HTMLWidgets.widget({
 						      Worker: 'bar'
           			},
 						        colors: {
-            Present: '#6897bb',
-            Missing: '#486982'
+            Observer: '#1f77b4',
+            Worker: '#ff7f0e'
         },
           			//axes: {
           			  // extra y-axis
