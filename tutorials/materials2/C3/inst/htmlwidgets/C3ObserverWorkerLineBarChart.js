@@ -64,7 +64,7 @@ HTMLWidgets.widget({
         x: {
             type: 'category',
             tick: {
-                rotate: 65,
+                rotate: -45,
                 multiline: false
             },
             height: 140
