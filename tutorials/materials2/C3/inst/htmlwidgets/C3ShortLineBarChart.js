@@ -1,6 +1,6 @@
 HTMLWidgets.widget({
 
-  name: 'C3LineBarChart',
+  name: 'C3ShortLineBarChart',
 
   type: 'output',
 
