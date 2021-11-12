@@ -39,6 +39,9 @@ HTMLWidgets.widget({
             ratio: 0.835
         }
     },
+    	legend: {
+        show: false
+    },
                 axis: {rotated: true,
         x: {
             type: 'category',
