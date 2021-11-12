@@ -26,13 +26,13 @@ HTMLWidgets.widget({
         json: [],//x.my_df,
                 
                     keys: {
-                          x: "Outcomes",
+                          x: "Level",
 
                         value: keys,
                     },
                     types: {
 
-                        Probability: 'bar'
+                        Value: 'bar'
                     },
                   },    bar: {
         width: {
