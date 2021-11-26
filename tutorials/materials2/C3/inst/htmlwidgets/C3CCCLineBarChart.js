@@ -37,12 +37,12 @@ HTMLWidgets.widget({
           			types: {
 
           		  	// default is line, we want totals to be displayed as bars
-          				Counts: 'bar',
-						Corpus Counts: 'bar'
+          				Current: 'bar',
+						Corpus: 'bar'
           			},
 						        colors: {
-            Counts: '#1f77b4',
-            Corpus Counts: '#ff7f0e'
+            Current: '#1f77b4',
+            Corpus: '#ff7f0e'
         }
           			//axes: {
           			  // extra y-axis
