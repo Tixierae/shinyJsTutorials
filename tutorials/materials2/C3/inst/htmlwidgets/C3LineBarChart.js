@@ -6,83 +6,82 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
 
-    // create an empty chart
     var chart = null;
 
     return {
 
       renderValue: function(x) {
-
-        // if the chart does not exist, create it via c3.generate
-        if(chart===null){
+        if (chart === null) {
 
             keys = _.keys(x.dataset);
 
-          	chart = c3.generate({
+            chart = c3.generate({
+                bindto: el,
+                data: {
+                    json: [],
+                    keys: {
+                        x: "Attributes",
+                        value: keys,
+                    },
+                    types: {
+                        Counts: 'bar'
+                    },
+                },
 
-          	  // specify the container element we want the chart to render in
-          		bindto: el,
-          		data: {
-          			json: [],
-          			keys: {
-          				x: "Attributes",
-          				value: keys,
-          			},
-          			types: {
-          				Counts: 'bar'
-          			},
-        		},
-        		
-        		padding: {
-        		    bottom: 0, // Remove extra whitespace below
-        		    top: 5,  // Keep minimal padding for aesthetics
-        		},
-        		
-        		bar: {
-        		    width: {
-        		        ratio: 0.835 // Keeps bar width proportionate
-        		    }
-        		},
+                padding: {
+                    bottom: 0, // Remove extra whitespace below
+                    top: 5,
+                },
 
-        		legend: {
-        		    show: false
-        		},
+                bar: {
+                    width: {
+                        ratio: 0.835
+                    }
+                },
 
-          		axis: {
-          		    x: {
-          		        type: 'category',
-          		        tick: {
-          		            rotate: -45,
-          		            multiline: false
-          		        },
-          		        height: 60 // Enough space for labels, adjust as needed
-          		    },
-          		    y: {
-          		        tick: {
-          		            format: function (d) {
-          		                return (parseInt(d) == d) ? d : null;
-          		            }
-          		        }
-          		    }
-          		},
-          		
-          		size: {
-          		    height: 250 // Ensures optimal fit without extra space
-          		},
+                legend: {
+                    show: false
+                },
 
-          		clipPath: false // Prevents extra clipping space
-          	});
+                axis: {
+                    x: {
+                        type: 'category',
+                        tick: {
+                            rotate: -45,
+                            multiline: false,
+                            flush: true // Forces correct alignment immediately
+                        },
+                        height: 60
+                    },
+                    y: {
+                        tick: {
+                            format: function (d) {
+                                return (parseInt(d) == d) ? d : null;
+                            }
+                        }
+                    }
+                },
 
-		  // store the chart on el so we can get it later
-          el.chart = chart;
-			
+                size: {
+                    height: 250 // Ensures optimal fit
+                },
+
+                clipPath: false // Prevents extra clipping space
+            });
+
+            el.chart = chart;
         }
 
-		el.chart.load({json: x.dataset});
+        el.chart.load({ json: x.dataset });
+
+        // **Forces re-render to remove whitespace immediately**
+        setTimeout(function () {
+            el.chart.resize();
+        }, 10);
       },
 
       resize: function(width, height) {
-          chart.resize({height: height, width: width});
+          chart.resize({ height: height, width: width });
       }
     };
   }
