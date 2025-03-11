@@ -49,7 +49,7 @@ HTMLWidgets.widget({
                         tick: {
                             rotate: -45,
                             multiline: false,
-                            flush: true // Forces correct alignment immediately
+                            flush: true // Ensures proper alignment immediately
                         },
                         height: 60
                     },
@@ -63,7 +63,7 @@ HTMLWidgets.widget({
                 },
 
                 size: {
-                    height: 250 // Ensures optimal fit
+                    height: 250 // Forces correct chart height at start
                 },
 
                 clipPath: false // Prevents extra clipping space
@@ -74,10 +74,13 @@ HTMLWidgets.widget({
 
         el.chart.load({ json: x.dataset });
 
-        // **Forces re-render to remove whitespace immediately**
-        setTimeout(function () {
+        // **Force a flush to immediately fix whitespace**
+        chart.flush();
+
+        // **Ensure a re-render without user interaction**
+        requestAnimationFrame(() => {
             el.chart.resize();
-        }, 10);
+        });
       },
 
       resize: function(width, height) {
