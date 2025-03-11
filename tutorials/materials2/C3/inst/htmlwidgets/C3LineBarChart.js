@@ -23,99 +23,67 @@ HTMLWidgets.widget({
           	  // specify the container element we want the chart to render in
           		bindto: el,
           		data: {
-
-          		  // intialize with an empty array
           			json: [],
           			keys: {
-          			      // use Time for x-axis
-          			      x: "Attributes",
-
-          			  // use the remaining data for y-values
+          				x: "Attributes",
           				value: keys,
           			},
-          			// set chart types
           			types: {
-
-          		  	// default is line, we want totals to be displayed as bars
           				Counts: 'bar'
           			},
-          			//axes: {
-          			  // extra y-axis
-          			//	Total: 'y2'
-          			//},
-        		  },
-				  padding: {
-      bottom: 5
-   },
-				  
-				  bar: {
-        width: {
-            ratio: 0.835 // this makes bar width 50% of length between ticks
-        }
-        // or
-        //width: 100 // this makes bar width 100px
-    },
-	legend: {
-        show: false
-    },
+        		},
+        		
+        		padding: {
+        		    bottom: 0, // Remove extra whitespace below
+        		    top: 5,  // Keep minimal padding for aesthetics
+        		},
+        		
+        		bar: {
+        		    width: {
+        		        ratio: 0.835 // Keeps bar width proportionate
+        		    }
+        		},
+
+        		legend: {
+        		    show: false
+        		},
+
           		axis: {
-        x: {
-            type: 'category',
-            tick: {
-                rotate: -45,
-                multiline: false
-            },
-            height: 140
-        },
-		// taken from: https://stackoverflow.com/questions/31703525/c3-charts-dont-want-decimal-numbers-in-y-axis
-		y: {
-            tick: {
-                format: function (d) {
-                    return (parseInt(d) == d) ? d : null;
-                }
-            }
-        }
-          			//y2: {
-          			  // we want a second y-axis
-          			//	show: true
-          			//}
+          		    x: {
+          		        type: 'category',
+          		        tick: {
+          		            rotate: -45,
+          		            multiline: false
+          		        },
+          		        height: 60 // Enough space for labels, adjust as needed
+          		    },
+          		    y: {
+          		        tick: {
+          		            format: function (d) {
+          		                return (parseInt(d) == d) ? d : null;
+          		            }
+          		        }
+          		    }
+          		},
+          		
+          		size: {
+          		    height: 250 // Ensures optimal fit without extra space
           		},
 
-          		// display a subchart - this will be used for brushing in a later stage
-          		//subchart: {
-          		//	show: true
-          		//}
+          		clipPath: false // Prevents extra clipping space
           	});
-			
-		  // store the chart on el so we can get it latter
+
+		  // store the chart on el so we can get it later
           el.chart = chart;
 			
         }
 
-		
 		el.chart.load({json: x.dataset});
-		
-        // at this stage the chart always exists
-        // get difference in keys
-        //var old_keys = _.keys(chart.x());
-        //var new_keys = _.keys(x.dataset);
-        //var diff     = _.difference(old_keys,new_keys);
-
-        // update the data and colors
-        //chart.load({
-         // json  : x.dataset,
-          //colors: x.colors,
-
-          // unload data that we don't need anymore
-         // unload: diff
-        //});
       },
-	  	   resize: function(width, height) {
-      // this will vary based on the JavaScript library
-      // in the case of C3 we are fortunate that there is a resize method
-      //  http://c3js.org/samples/api_resize.html
-      chart.resize({height:height, width:width})
-    }
+
+      resize: function(width, height) {
+          chart.resize({height: height, width: width});
+      }
     };
   }
 });
